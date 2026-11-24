@@ -12,7 +12,7 @@
 ## Notes-zhCN: 在 Baganator 的银行和背包窗口添加按钮，通过 Auctionator 临时列表在拍卖行搜索所有物品。
 ## Notes-zhTW: 在 Baganator 的銀行和背包視窗新增按鈕，透過 Auctionator 暫時清單在拍賣場搜尋所有物品。
 ## Notes-frFR: Ajoute des boutons sur les fenêtres de banque et de sacs de Baganator qui recherchent tous les objets à l'HV via une liste temporaire Auctionator.
-## Author: TON_PSEUDO
+## Author: Lahume-wow
 ## Version: @project-version@
 ## IconTexture: Interface\AddOns\BaganatorAH\Media\Icon
 ## Dependencies: Auctionator, Baganator, Syndicator
