@@ -14,6 +14,7 @@
 ## Notes-frFR: Ajoute des boutons sur les fenêtres de banque et de sacs de Baganator qui recherchent tous les objets à l'HV via une liste temporaire Auctionator.
 ## Author: Lahume-wow
 ## Version: @project-version@
+## X-Curse-Project-ID: 1827990
 ## IconTexture: Interface\AddOns\BaganatorAH\Media\Icon
 ## Dependencies: Auctionator, Baganator, Syndicator
 ## SavedVariables: BaganatorAHDB
