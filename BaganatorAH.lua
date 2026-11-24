@@ -33,6 +33,19 @@ local function Print(fmt, ...)
 end
 ns.Print = Print
 
+-- Version lue dans le TOC (remplie à la publication). Depuis le dépôt git,
+-- le TOC contient encore "@project-version@" : on affiche alors "dev".
+local function ReadVersion()
+  local getMetadata = (C_AddOns and C_AddOns.GetAddOnMetadata) or GetAddOnMetadata
+  local ok, version = false, nil
+  if getMetadata then ok, version = pcall(getMetadata, ADDON_NAME, "Version") end
+  if not ok or type(version) ~= "string" or version == "" or version:find("@", 1, true) then
+    return "dev"
+  end
+  return version
+end
+ns.VERSION = ReadVersion()
+
 -- Complète les réglages sauvegardés avec les valeurs par défaut manquantes.
 local function Merge(dst, src)
   for key, value in pairs(src) do
@@ -510,7 +523,7 @@ local function ShowTooltip(button, frame)
   local kind = frameKinds[frame] or "bank"
   local character, detected = DisplayedCharacter(frame)
   GameTooltip:SetOwner(button, "ANCHOR_BOTTOM")
-  GameTooltip:SetText("Baganator AH")
+  GameTooltip:SetText("Baganator AH |cff888888" .. ns.VERSION .. "|r")
   GameTooltip:AddLine(KindText("TOOLTIP", kind), 1, 1, 1, true)
   if character then
     local g = Gather(character, kind)

@@ -251,7 +251,7 @@ local function CreateOptionsFrame()
     title = f:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
     title:SetPoint("TOP", 0, -6)
   end
-  title:SetText(L.OPTIONS_TITLE)
+  title:SetText(L.OPTIONS_TITLE .. "  |cff888888" .. ns.VERSION .. "|r")
 
   -- Affichage ------------------------------------------------------------
   local y = -34
