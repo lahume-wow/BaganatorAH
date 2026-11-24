@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v1.0.1 - 2026-11-24
+
 - New option: hide the chat messages (scan summaries and notices). Errors are still shown.
 
 ## v1.0.0 - 2026-11-24
