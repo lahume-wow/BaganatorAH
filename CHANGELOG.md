@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v1.0.0 - 2026-11-24
+
 First public release for WoW Forever.
 
 - "AH Scan" button on the Baganator bank and bag windows.
@@ -13,3 +15,4 @@ First public release for WoW Forever.
 - Bound items are always skipped.
 - Translated into English, French, German, Spanish, Italian, Brazilian Portuguese, Russian,
   Korean and Chinese (simplified and traditional).
+
