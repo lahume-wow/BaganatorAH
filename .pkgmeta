@@ -1,0 +1,10 @@
+package-as: BaganatorAH
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+ignore:
+  - CURSEFORGE.md
+  - PUBLIER.md
+  - deploy.sh

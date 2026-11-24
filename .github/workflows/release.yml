@@ -1,0 +1,24 @@
+# Publie l'addon sur CurseForge et dans les releases GitHub
+# à chaque tag commençant par "v" (ex. v1.0.0).
+name: Package and release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write # nécessaire pour créer la release GitHub
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # historique complet pour le changelog
+
+      - uses: BigWigsMods/packager@v2

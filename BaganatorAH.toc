@@ -1,0 +1,23 @@
+## Interface: 16001
+## Title: Baganator AH
+## Title-frFR: Baganator HV
+## Notes: Adds buttons to the Baganator bank and bag windows that search every item on the Auction House through a temporary Auctionator list.
+## Notes-deDE: Fügt den Bank- und Taschenfenstern von Baganator Buttons hinzu, die alle Gegenstände über eine temporäre Auctionator-Liste im Auktionshaus suchen.
+## Notes-esES: Añade botones a las ventanas de banco y bolsas de Baganator que buscan todos los objetos en la casa de subastas mediante una lista temporal de Auctionator.
+## Notes-esMX: Añade botones a las ventanas de banco y bolsas de Baganator que buscan todos los objetos en la casa de subastas mediante una lista temporal de Auctionator.
+## Notes-itIT: Aggiunge pulsanti alle finestre di banca e borse di Baganator che cercano tutti gli oggetti nella casa d'aste tramite una lista temporanea di Auctionator.
+## Notes-ptBR: Adiciona botões às janelas de banco e bolsas do Baganator que procuram todos os itens na Casa de Leilões por meio de uma lista temporária do Auctionator.
+## Notes-ruRU: Добавляет кнопки в окна банка и сумок Baganator, которые ищут все предметы на аукционе через временный список Auctionator.
+## Notes-koKR: Baganator 은행 및 가방 창에 모든 아이템을 Auctionator 임시 목록으로 경매장에서 검색하는 버튼을 추가합니다.
+## Notes-zhCN: 在 Baganator 的银行和背包窗口添加按钮，通过 Auctionator 临时列表在拍卖行搜索所有物品。
+## Notes-zhTW: 在 Baganator 的銀行和背包視窗新增按鈕，透過 Auctionator 暫時清單在拍賣場搜尋所有物品。
+## Notes-frFR: Ajoute des boutons sur les fenêtres de banque et de sacs de Baganator qui recherchent tous les objets à l'HV via une liste temporaire Auctionator.
+## Author: TON_PSEUDO
+## Version: @project-version@
+## IconTexture: Interface\AddOns\BaganatorAH\Media\Icon
+## Dependencies: Auctionator, Baganator, Syndicator
+## SavedVariables: BaganatorAHDB
+
+Locales.lua
+BaganatorAH.lua
+Options.lua
