@@ -1,10 +1,13 @@
 package-as: BaganatorAH
 
+# Notes de la version publiée, générées par le workflow à partir de CHANGELOG.md.
 manual-changelog:
-  filename: CHANGELOG.md
+  filename: RELEASE_NOTES.md
   markup-type: markdown
 
 ignore:
   - CURSEFORGE.md
+  - DEVELOPMENT.md
   - PUBLIER.md
   - deploy.sh
+  - release.sh

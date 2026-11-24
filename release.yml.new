@@ -1,0 +1,38 @@
+# Publie l'addon sur CurseForge et dans les releases GitHub à chaque tag
+# commençant par "v" (ex. v1.0.0). Les tags sont créés par ./release.sh.
+name: Package and release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write # nécessaire pour créer la release GitHub
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Ne garde du CHANGELOG que la section de cette version : c'est elle
+      # qui s'affiche sur CurseForge et dans la release GitHub.
+      - name: Extract release notes
+        run: |
+          awk -v tag="$GITHUB_REF_NAME" '
+            /^## / { if (inside) exit; if ($2 == tag) { inside = 1; next } }
+            inside { print }
+          ' CHANGELOG.md | sed -e '/./,$!d' > RELEASE_NOTES.md
+          if [ ! -s RELEASE_NOTES.md ]; then
+            echo "Version $GITHUB_REF_NAME" > RELEASE_NOTES.md
+          fi
+          echo "----- Notes publiées -----"
+          cat RELEASE_NOTES.md
+
+      - uses: BigWigsMods/packager@v2

@@ -1,3 +1,5 @@
 .release/
 *.zip
 .env
+RELEASE_NOTES.md
+luac.out
