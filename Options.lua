@@ -5,7 +5,7 @@ local L = ns.L
 -- Fenêtre d'options (clic droit sur un bouton Scan HV, ou /bah options)
 ------------------------------------------------------------------------
 local FRAME_NAME = "BaganatorAHOptionsFrame"
-local WIDTH, HEIGHT = 440, 556
+local WIDTH, HEIGHT = 440, 580
 local ROWS, ROW_H = 7, 22
 local QUESTION_ICON = 134400 -- Interface\Icons\INV_Misc_QuestionMark
 
@@ -138,7 +138,7 @@ local function AddEntry(text)
   if not entry then return end
   for _, existing in ipairs(DB().exclusions) do
     if SameEntry(existing, entry) then
-      ns.Print(L.ALREADY_LISTED)
+      ns.Log(L.ALREADY_LISTED)
       return
     end
   end
@@ -260,9 +260,13 @@ local function CreateOptionsFrame()
     function() return DB().onlyAtAH end,
     function(v) DB().onlyAtAH = v; ns.UpdateScanButtons() end,
     nil, L.ONLY_AT_AH_TIP)
+  Check(f, L.CHAT_MESSAGES, 16, y - 42,
+    function() return DB().chatMessages ~= false end,
+    function(v) DB().chatMessages = v end,
+    nil, L.CHAT_MESSAGES_TIP)
 
   -- Rareté ---------------------------------------------------------------
-  y = -88
+  y = -112
   Header(f, L.SECTION_RARITY, y)
   for i, q in ipairs(ns.QUALITIES) do
     local col, line = (i - 1) % 3, math.floor((i - 1) / 3)
@@ -274,7 +278,7 @@ local function CreateOptionsFrame()
   end
 
   -- Scanner uniquement ---------------------------------------------------
-  y = -164
+  y = -188
   Header(f, L.SECTION_SCAN_ONLY, y)
   Hint(f, L.SCAN_ONLY_HINT, y - 16)
   local CAT_LABELS = {
@@ -290,7 +294,7 @@ local function CreateOptionsFrame()
   end
 
   -- Objets exclus --------------------------------------------------------
-  y = -278
+  y = -302
   Header(f, L.SECTION_EXCLUDE, y)
   Hint(f, L.EXCLUDE_HINT, y - 16)
 

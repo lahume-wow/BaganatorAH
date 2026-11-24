@@ -17,6 +17,7 @@ local DEFAULTS = {
   -- Raretés à scanner (false = ignorée). Gris ignoré par défaut.
   qualities = { [0] = false, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true },
   onlyAtAH = false,      -- boutons « Scan HV » visibles seulement quand l'HV est ouvert
+  chatMessages = true,   -- messages courants dans le chat (les erreurs restent toujours affichées)
   exclusions = {},       -- objets exclus : { id = 1234 } ou { name = "Nom" }
   categories = { equipment = false, crafting = false, consumable = false },
   -- Position des boutons : point du bouton, point de la fenêtre, décalage x, y
@@ -32,6 +33,13 @@ local function Print(fmt, ...)
   print(PREFIX .. fmt)
 end
 ns.Print = Print
+
+-- Message courant (résumé du scan, avis...) : masqué si l'option est décochée.
+-- Les erreurs et les réponses aux commandes /bah utilisent Print.
+local function Log(...)
+  if not BaganatorAHDB or BaganatorAHDB.chatMessages ~= false then Print(...) end
+end
+ns.Log = Log
 
 -- Version lue dans le TOC (remplie à la publication). Depuis le dépôt git,
 -- le TOC contient encore "@project-version@" : on affiche alors "dev".
@@ -463,7 +471,7 @@ local function Dispatch(terms)
     RunSearch(terms)
   else
     pendingTerms = terms
-    Print(L.AH_CLOSED)
+    Log(L.AH_CLOSED)
   end
 end
 
@@ -495,11 +503,11 @@ local function Scan(character, kind)
     local s = g.stats
 
     if #terms == 0 then
-      Print(KindText("NOTHING", kind), character, s.items, SkipSummary(s))
+      Log(KindText("NOTHING", kind), character, s.items, SkipSummary(s))
       return
     end
 
-    Print(KindText("RESULT", kind), character, #terms, SkipSummary(s))
+    Log(KindText("RESULT", kind), character, #terms, SkipSummary(s))
     Dispatch(terms)
   end)
 end
@@ -564,7 +572,7 @@ local function AttachTo(frame, kind)
     end
     local character, detected = DisplayedCharacter(frame)
     if not detected then
-      Print(L.NOT_DETECTED)
+      Log(L.NOT_DETECTED)
     end
     Scan(character, kind)
   end)

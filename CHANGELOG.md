@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- New option: hide the chat messages (scan summaries and notices). Errors are still shown.
+
 ## v1.0.0 - 2026-11-24
 
 First public release for WoW Forever.
